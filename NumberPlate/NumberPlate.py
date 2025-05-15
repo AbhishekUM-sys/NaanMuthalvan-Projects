@@ -2,10 +2,12 @@ import cv2
 import pytesseract
 import numpy as np
 
-image = cv2.imread("image3.png")
+image = cv2.imread("image-0.png")
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 filtered = cv2.bilateralFilter(gray, 11, 17, 17)
 edges = cv2.Canny(filtered, 170, 200)
+cv2.imshow('Output', edges)
+cv2.waitKey(0)
 contours, _ = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 contours = sorted(contours, key=cv2.contourArea, reverse=True)
 number_plate_text = None
@@ -22,7 +24,6 @@ for contour in contours:
         number_plate_text = number_plate_text.strip()
         break
 
-
 if number_plate_text:
     print(f"Detected Number Plate: {number_plate_text}")
     cv2.imshow('Output', image)
@@ -31,4 +32,3 @@ if number_plate_text:
 else:
     print("Number plate not detected")        
         
-

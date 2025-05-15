@@ -1,4 +1,4 @@
-### Prequisites\
+### Prequisites
 ```
 OpenCV (pip install opencv-python)
 Pytesseract (pip install pytesseract)
