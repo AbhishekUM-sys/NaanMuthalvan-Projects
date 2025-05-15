@@ -2,7 +2,7 @@ import cv2
 import pytesseract
 import numpy as np
 
-image = cv2.imread("image-0.png")
+image = cv2.imread("image3.png")
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 filtered = cv2.bilateralFilter(gray, 11, 17, 17)
 edges = cv2.Canny(filtered, 170, 200)
