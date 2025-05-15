@@ -22,6 +22,7 @@ for contour in contours:
         number_plate_text = number_plate_text.strip()
         break
 
+
 if number_plate_text:
     print(f"Detected Number Plate: {number_plate_text}")
     cv2.imshow('Output', image)
